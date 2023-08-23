@@ -8,6 +8,7 @@ import productsRouter from "./routes/products.js";
 import cartsRouter from "./routes/carts.js";
 import realTimeProductsRoute from "./routes/realTimeProducts.js";
 import ProductManager from "./ProductManager.js";
+import path from 'path';
 
 const app = express();
 
@@ -29,7 +30,9 @@ const server = app.listen(port, () => {
 });
 const socketServer = new Server(server);
 
-const productManager = new ProductManager("./src/productos.json", socketServer);
+const productsPath = path.join(__dirname, '..', 'src', 'productos.json');
+
+const productManager = new ProductManager(productsPath, socketServer);
 
 app.use("/", viewsRoute);
 app.use(

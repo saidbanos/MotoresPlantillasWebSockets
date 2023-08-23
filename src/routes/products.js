@@ -1,9 +1,13 @@
 import { Router } from "express";
 import ProductManager from "../ProductManager.js";
+import path from 'path';
+import __dirname from "../utils.js";
 
 const router = Router();
 
-const productManager = new ProductManager("./src/productos.json");
+const productsPath = path.join(__dirname, '..', 'src', 'productos.json');
+
+const productManager = new ProductManager(productsPath);
 
 router.use((req, res, next) => {
 	console.log("INFO: Running from products.js");

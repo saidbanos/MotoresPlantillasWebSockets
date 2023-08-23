@@ -1,11 +1,16 @@
 import { Router } from "express";
 import CartManager from "../CartManager.js";
 import ProductManager from "../ProductManager.js";
+import path from 'path';
+import __dirname from "../utils.js";
 
 const router = Router();
 
 const cartManager = new CartManager("carrito.json");
-const productManager = new ProductManager("./src/productos.json");
+
+const productsPath = path.join(__dirname, '..', 'src', 'productos.json');
+
+const productManager = new ProductManager(productsPath);
 
 router.use((req, res, next) => {
 	console.log("INFO: Running from carts.js");
