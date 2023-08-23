@@ -29,7 +29,7 @@ const server = app.listen(port, () => {
 });
 const socketServer = new Server(server);
 
-const productManager = new ProductManager("productos.json", socketServer);
+const productManager = new ProductManager("./src/productos.json", socketServer);
 
 app.use("/", viewsRoute);
 app.use(

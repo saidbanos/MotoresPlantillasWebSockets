@@ -3,7 +3,7 @@ import ProductManager from "../ProductManager.js";
 
 const router = Router();
 
-const productManager = new ProductManager("productos.json");
+const productManager = new ProductManager("./src/productos.json");
 
 router.use((req, res, next) => {
 	console.log("INFO: Running from products.js");
